@@ -1,5 +1,10 @@
 #include "main.h"
 
+std::string getWordAt(uint idx) {
+    std::string rv = dwMap.at(idx);
+    return rv;
+}
+
 uint getUserInput() {
     std::string inp;
     unsigned int len;
