@@ -78,4 +78,15 @@ def substituteSpaceWithSpecialChars(password_orig: str) -> str:
             pwList[i] = spChars[idx]
     password: str = "".join(pwList)
     return password
+
+
+def substituteWithRandomNumbers(password_orig: str) -> str:
+    pwList: List[str] = list(password_orig)
+    replacableChars: List[str] = ["a", "b", "e", "z", "s", "t", "i", "g", "o"]
+    for i in range(0, len(pwList)):
+        if pwList[i] in replacableChars:
+            num = getRandomNumber(10, True)
+            pwList[i] = str(num)
+    password: str = "".join(pwList)
+    return password
 # </editor-fold>
