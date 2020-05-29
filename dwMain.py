@@ -90,3 +90,33 @@ def substituteWithRandomNumbers(password_orig: str) -> str:
     password: str = "".join(pwList)
     return password
 # </editor-fold>
+
+
+if __name__ == '__main__':
+    dwPassword: str = ""
+    wIndices: List[int] = []
+
+    nWords = getUserInput("How many words would you like to use? :", 7776)
+
+    for i in range(0, nWords):
+        rNumber: int = getRandomNumber(7, False)
+        wIndices.append(rNumber)
+
+    for i in range(0, nWords):
+        word: str = getWordFromDicewareMap(wIndices[i])
+        dwPassword += word
+        if i != nWords-1:
+            dwPassword += " "
+
+    shouldUseSpecialChars: int = getUserInput("Would you like to replace spaces with special characters? (1)yes or (0)no :", 1)
+    if shouldUseSpecialChars == 1:
+        dwPassword = substituteSpaceWithSpecialChars(dwPassword)
+    else:
+        dwPassword = removeSpaces(dwPassword)
+
+    shouldUseNumbers: int = getUserInput("Would you like to replace common characters with random numbers?: (1)yes or (0)no :", 1)
+    if shouldUseNumbers == 1:
+        dwPassword = substituteWithRandomNumbers(dwPassword)
+
+    success("Your password in accordance to diceware is as follows\n", dwPassword)
+    info("Password length: ", len(dwPassword))
