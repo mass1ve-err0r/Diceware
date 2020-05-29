@@ -58,4 +58,8 @@ def getUserInput(msg: str, upper_bound: int) -> int:
     except ValueError:
         error("Input not recognized, please retry...")
         return getUserInput(msg, upper_bound)
+
+
+def getWordFromDicewareMap(key: int) -> str:
+    return dwMap.get(key)
 # </editor-fold>
