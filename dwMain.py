@@ -44,4 +44,18 @@ def getRandomNumber(exclusive_max: int, singular: bool) -> int:
     for i in rNums:
         rv_s += str(i)
     return int(rv_s)
+
+
+def getUserInput(msg: str, upper_bound: int) -> int:
+    rvUI: int
+    try:
+        info(msg)
+        rvUI = int(input())
+        if rvUI > upper_bound or rvUI < 0:
+            error("Number too big or negative, please retry...")
+            return getUserInput(msg, upper_bound)
+        return rvUI
+    except ValueError:
+        error("Input not recognized, please retry...")
+        return getUserInput(msg, upper_bound)
 # </editor-fold>
