@@ -72,3 +72,55 @@ uint getUserInput() {
     }
     return (uint)len;
 }
+
+int main() {
+    std::string rv;
+    unsigned int shouldUseSpecials, shouldSubstituteWithNumbers;
+
+    info("How many words would you like to use?")
+    unsigned int pLength = getUserInput();
+    std::string dwFinalWords[pLength];
+    size_t n = sizeof(dwFinalWords)/sizeof(std::string);
+    for (int i = 0; i < n; ++i) {
+        uint rNum = randomNumberGenerator(1, 6, false);
+        dwFinalWords[i] = getWordAt(rNum);
+    }
+
+    for (int j = 0; j < n; ++j) {
+        if (j-1 == n) {
+            rv += dwFinalWords[j];
+            continue;
+        }
+        rv += dwFinalWords[j];
+        rv += " ";
+    }
+
+    info("Would you like to include special characters? (1)yes or (0)no");
+    while (true) {
+        shouldUseSpecials = getUserInput();
+        if (shouldUseSpecials < 2 && shouldUseSpecials >= 0) {
+            break;
+        }
+        error("Could not processes input. Retry...");
+    }
+
+    info("Would you like to substitute some characters with Numbers? (1)yes or (0)no");
+    while (true) {
+        shouldSubstituteWithNumbers = getUserInput();
+        if (shouldSubstituteWithNumbers < 2 && shouldSubstituteWithNumbers >= 0) {
+            break;
+        }
+        error("Could not processes input. Retry...");
+    }
+
+    if (shouldUseSpecials == 1) {
+        rv = replaceSpaceWithSpecialChar(rv);
+    }
+    if (shouldSubstituteWithNumbers == 1) {
+        rv = replaceSpaceWithRandomNumbers(rv);
+    }
+
+    success("Password creation successful. This is your password:")
+    info(rv);
+    return 0;
+}
