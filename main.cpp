@@ -27,6 +27,17 @@ unsigned int randomNumberGenerator(int a, int b, bool singular) {
     return rv;
 }
 
+std::string replaceSpaceWithSpecialChar(std::string password) {
+    char specials[10] = {'$', '_', '?', '!', '&', '%', '=', '-', '+', '#'};
+    for(char & it : password) {
+        if(it == ' ') {
+            unsigned int rNum = randomNumberGenerator(0, 9, true);
+            it = specials[rNum];
+        }
+    }
+    return password;
+}
+
 std::string getWordAt(unsigned int idx) {
     std::string rv = dwMap.at(idx);
     return rv;
