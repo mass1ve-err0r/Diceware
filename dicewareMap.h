@@ -6,7 +6,6 @@
 #define DICEWARECPP_DICEWAREMAP_H
 
 #include <map>
-#include <string>
 
 std::map<unsigned int, std::string> dwMap = {
         {11111, "a"},
