@@ -66,8 +66,8 @@ uint getUserInput() {
         }
         error("Failed to recognize amount. Retry...");
     }
-    if (len > 66666) {
-        error("Index was out of bounds! Retry...");
+    if (len > 7776) {
+        error("Number is too big! Retry...");
         return getUserInput();
     }
     return (uint)len;
