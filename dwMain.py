@@ -1,6 +1,7 @@
 from dicewareMap import dicewareMap as dwMap
 from typing import List, Any
 from secrets import randbelow
+from string import punctuation
 
 
 # <editor-fold desc="[Prettier Printing Functions]">
@@ -66,4 +67,15 @@ def getWordFromDicewareMap(key: int) -> str:
 
 def removeSpaces(password: str) -> str:
     return password.replace(" ", "")
+
+
+def substituteSpaceWithSpecialChars(password_orig: str) -> str:
+    spChars: List[str] = list(punctuation)
+    pwList: List[str] = list(password_orig)
+    for i in range(0, len(pwList)):
+        if pwList[i] == " ":
+            idx = getRandomNumber(32, True)
+            pwList[i] = spChars[idx]
+    password: str = "".join(pwList)
+    return password
 # </editor-fold>
