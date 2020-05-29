@@ -38,6 +38,17 @@ std::string replaceSpaceWithSpecialChar(std::string password) {
     return password;
 }
 
+std::string replaceSpaceWithRandomNumbers(std::string password) {
+    char numbers[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    for(char & it : password) {
+        if(it == 'a' || it == 'e' || it == 'i' || it == 'o' || it == 't' || it == 'z' || it == 's' || it == 'b') {
+            unsigned int rNum = randomNumberGenerator(0, 9, true);
+            it = numbers[rNum];
+        }
+    }
+    return password;
+}
+
 std::string getWordAt(unsigned int idx) {
     std::string rv = dwMap.at(idx);
     return rv;
