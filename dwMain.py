@@ -62,4 +62,8 @@ def getUserInput(msg: str, upper_bound: int) -> int:
 
 def getWordFromDicewareMap(key: int) -> str:
     return dwMap.get(key)
+
+
+def removeSpaces(password: str) -> str:
+    return password.replace(" ", "")
 # </editor-fold>
