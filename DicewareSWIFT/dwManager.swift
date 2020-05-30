@@ -6,6 +6,14 @@
 import Foundation
 
 
+func getUserInput(msg: String) -> Int {
+    print(msg)
+    let inp = readLine().flatMap(Int.init(_:))
+    if (inp == nil) {
+        return getUserInput(msg: "String was malformed! Please retry...")
+    }
+    return inp!
+}
 
 func createDicewareNumber() -> Int {
     var rv_i: [Int] = []
