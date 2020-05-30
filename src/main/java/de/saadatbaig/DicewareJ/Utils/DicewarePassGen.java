@@ -40,6 +40,36 @@ public class DicewarePassGen {
         return ThreadLocalRandom.current().nextInt(_min, _max);
     }
 
+    public String substituteContentsWithSpecials(String password, int mode) {
+        StringBuilder rv = new StringBuilder(password);
+        if (mode == 1) {
+            for(int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+                if (c == ' ') {
+                    int rNum = generateSingularRandomNumber(1, 20);
+                    rv.setCharAt(i, specials[rNum]);
+                }
+            }
+        }
+        else if (mode == 2) {
+            for(int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+                if (isInExchangeables(c)) {
+                    int rNum = generateSingularRandomNumber(0, 10);
+                    rv.setCharAt(i, Character.forDigit(rNum, 10));
+                }
+            }
+        } else {
+            for(int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+                if (c == ' ') {
+                    rv.setCharAt(i, '_');
+                }
+            }
+        }
+        return rv.toString();
+    }
+
     private boolean isInExchangeables(char c) {
         for (char x : exchangeables) {
             if (x == c) {
