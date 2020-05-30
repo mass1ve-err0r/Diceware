@@ -13,6 +13,16 @@ public class DicewarePassGen {
         dwMap = new DicewareMap();
     }
 
+    public String[] getWords(int amount) {
+        String[] rv = new String[amount];
+        for (int i = 0; i < rv.length; i++) {
+            String key_s = generateRandomNumberString(1, 7);
+            String dwWord = dwMap.getWordFromKey(key_s);
+            rv[i] = dwWord;
+        }
+        return rv;
+    }
+
     public String generateRandomNumberString(int _min, int _max) {
         StringBuilder rv = new StringBuilder();
         for (int i = 0; i < 5; i++) {
