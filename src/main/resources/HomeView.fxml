@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.saadatbaig.DicewareJ.Views.HomeView">
+   <children>
+      <TextField fx:id="tfAmount" layoutX="14.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" promptText="Amount of words (1-7776)" />
+      <Label fx:id="lHeader" alignment="CENTER" layoutY="-3.0" prefHeight="100.0" prefWidth="600.0" text="DicewareJ" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="60.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="cbWhitespace" layoutX="14.0" layoutY="227.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Sub whitespaces with specials" />
+      <CheckBox fx:id="cbNums" layoutX="14.0" layoutY="290.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Add Numbers" />
+      <Button fx:id="btnGenerate" layoutX="14.0" layoutY="356.0" mnemonicParsing="false" onAction="#createPassword" prefHeight="30.0" prefWidth="200.0" text="Generate Passphrase" />
+      <ListView fx:id="lvLogger" layoutX="241.0" layoutY="167.0" prefHeight="233.0" prefWidth="359.0" />
+      <ScrollPane fx:id="spPassView" layoutY="107.0" onMouseClicked="#copyPassphrase" prefHeight="55.0" prefWidth="600.0">
+         <content>
+            <Label fx:id="lPass" maxWidth="1.7976931348623157E308" prefHeight="35.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </content></ScrollPane>
+   </children>
+</AnchorPane>
