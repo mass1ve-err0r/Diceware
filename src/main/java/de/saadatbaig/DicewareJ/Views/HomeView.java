@@ -40,6 +40,17 @@ public class HomeView {
         }
     }
 
+    public void copyPassphrase() {
+        if (lPass.getText().isEmpty()) {
+            showWarning("There is nothing to copy!");
+            //new Alert(Alert.AlertType.ERROR, "There is nothing to copy yet !", ButtonType.CANCEL).showAndWait();
+        } else {
+            String pw = lPass.getText();
+            content.putString(pw);
+            clipboard.setContent(content);
+        }
+    }
+
     public void showPassword(Tuple<String[], String> _pw) {
         lvLogger.getItems().clear();
         lPass.setText(_pw.getSecond());
