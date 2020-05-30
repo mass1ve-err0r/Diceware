@@ -38,3 +38,30 @@ func getNWordsFromList(n: Int) -> String {
 
     return rv_a.joined(separator: " ")
 }
+
+func replaceWhitespacesWithSpecials(password: String, mode: Int) -> String {
+    if (mode == 0) { // Replace just with underscore
+        return password.replacingOccurrences(of: " ", with: "_")
+    }
+    var rv_s: [Character] = []
+    if (mode == 1) { // Replace with specials
+        for char in password {
+            if (char == " ") {
+                let rNum = Int.random(in: 0...14)
+                rv_s.append(specials[rNum])
+            } else {
+                rv_s.append(char)
+            }
+        }
+    } else { // Replace with random numbers
+        for char in password {
+            if (exchangeables.contains(char)) {
+                let rNum = Int.random(in: 0...9)
+                rv_s.append(Character(String(rNum)))
+            } else {
+                rv_s.append(char)
+            }
+        }
+    }
+    return String(rv_s)
+}
