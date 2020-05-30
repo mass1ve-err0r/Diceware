@@ -27,6 +27,9 @@ public class HomeView {
         lvLogger.setTooltip(new Tooltip("The used words will be shown here!"));
     }
 
+    private void showWarning(String msg) {
+        new Alert(Alert.AlertType.ERROR, msg, ButtonType.CANCEL).showAndWait();
+    }
 
     /* End */
 }
