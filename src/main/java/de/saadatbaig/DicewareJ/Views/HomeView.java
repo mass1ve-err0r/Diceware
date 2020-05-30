@@ -1,0 +1,32 @@
+package de.saadatbaig.DicewareJ.Views;
+
+import de.saadatbaig.DicewareJ.Main;
+import de.saadatbaig.DicewareJ.Models.Tuple;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+
+public class HomeView {
+
+    @FXML Label lHeader;
+    @FXML TextField tfAmount;
+    @FXML CheckBox cbWhitespace;
+    @FXML CheckBox cbNums;
+    @FXML ListView<String> lvLogger;
+    @FXML Button btnGenerate;
+    @FXML Label lPass;
+    @FXML ScrollPane spPassView;
+
+    final Clipboard clipboard = Clipboard.getSystemClipboard();
+    final ClipboardContent content = new ClipboardContent();
+
+    public void lateinit() {
+        spPassView.setTooltip(new Tooltip("Click me to copy your password!"));
+        lvLogger.setTooltip(new Tooltip("The used words will be shown here!"));
+    }
+
+
+    /* End */
+}
