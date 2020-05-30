@@ -5,6 +5,9 @@
 
 import Foundation
 
+let specials: [Character] = ["!", "$", "§", "_", "-", "+", "*", "#", "=", "}", "&", "%", "?", "ß", "^"]
+let exchangeables: [Character] = ["i", "z", "e", "a", "s", "t", "b", "g", "o"]
+
 
 func getUserInput(msg: String) -> Int {
     print(msg)
