@@ -16,3 +16,14 @@ func createDicewareNumber() -> Int {
     }
     return rv_i.reduce(0, {$0*10 + $1})
 }
+
+func getNWordsFromList(n: Int) -> String {
+    var rv_a: [String] = []
+
+    for i in 0..<n {
+        let idx = createDicewareNumber()
+        rv_a.append(dicewareMap[idx]!)
+    }
+
+    return rv_a.joined(separator: " ")
+}
