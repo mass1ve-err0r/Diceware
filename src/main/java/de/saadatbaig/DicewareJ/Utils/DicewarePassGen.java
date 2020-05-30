@@ -13,6 +13,10 @@ public class DicewarePassGen {
         dwMap = new DicewareMap();
     }
 
+    public String createSpacedString(String[] words) {
+        return String.join(" ", words);
+    }
+
     public String[] getWords(int amount) {
         String[] rv = new String[amount];
         for (int i = 0; i < rv.length; i++) {
