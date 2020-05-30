@@ -40,6 +40,14 @@ public class HomeView {
         }
     }
 
+    public void showPassword(Tuple<String[], String> _pw) {
+        lvLogger.getItems().clear();
+        lPass.setText(_pw.getSecond());
+        for(String _s: _pw.getFirst()) {
+            lvLogger.getItems().add(_s);
+        }
+    }
+
     private void showWarning(String msg) {
         new Alert(Alert.AlertType.ERROR, msg, ButtonType.CANCEL).showAndWait();
     }
