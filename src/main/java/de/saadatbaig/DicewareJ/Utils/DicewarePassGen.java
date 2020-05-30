@@ -40,5 +40,14 @@ public class DicewarePassGen {
         return ThreadLocalRandom.current().nextInt(_min, _max);
     }
 
+    private boolean isInExchangeables(char c) {
+        for (char x : exchangeables) {
+            if (x == c) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /* End */
 }
