@@ -27,6 +27,19 @@ public class HomeView {
         lvLogger.setTooltip(new Tooltip("The used words will be shown here!"));
     }
 
+    public void createPassword() {
+        if (tfAmount.getText().isBlank()) {
+            showWarning("Field is Blank! Please retry...");
+        } else {
+            try {
+                int n = Integer.parseInt(tfAmount.getText());
+                Main.cp(n, cbWhitespace.isSelected(), cbNums.isSelected());
+            } catch (NumberFormatException nfe) {
+                showWarning("Number could NOT be parsed! Please retry...");
+            }
+        }
+    }
+
     private void showWarning(String msg) {
         new Alert(Alert.AlertType.ERROR, msg, ButtonType.CANCEL).showAndWait();
     }
